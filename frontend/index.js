@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const row = document.createElement('tr');
                 row.classList.add('border-b', 'border-gray-700');
                 row.innerHTML = `
-                    <td class="p-4">${index + 1}</td>
-                    <td class="p-4">${student.roll}</td>
-                    <td class="p-4">
-                        ${student.url.startsWith('https://leetcode.com/u/') 
-                            ? `<a href="${student.url}" target="_blank" class="text-blue-400">${student.name}</a>`
-                            : `<div class="text-red-500">${student.name}</div>`}
+                <td class="p-4">${index + 1}</td>
+                <td class="p-4">${student.roll}</td>
+                <td class="p-4">
+                ${student.url.startsWith('https://leetcode.com/u/') 
+                    ? `<a href="${student.url}" target="_blank" class="text-blue-400">${student.name}</a>`
+                    : `<div class="text-red-500">${student.name}</div>`}
                     </td>
                     <td class="p-4">${student.section || 'N/A'}</td>
                     <td class="p-4">${student.totalSolved || 'N/A'}</td>
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 : data.filter(student => (student.section || 'N/A') === section);
             renderLeaderboard(filteredData);
         };
+           
 
         // Sorting logic with ascending and descending functionality
         let totalSolvedDirection = 'desc';
@@ -147,3 +148,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching data:', error);
     }
 });
+
